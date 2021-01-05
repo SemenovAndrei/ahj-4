@@ -44,7 +44,7 @@ describe('Credit Card Validator form', () => {
     await input.type('4026');
     const submit = await form.$('.btn-submit');
     submit.click();
-    await page.waitFor('.mark-invalid');
+    await page.waitForSelector('.mark-invalid');
   });
 
   test('valid number', async () => {
@@ -54,6 +54,6 @@ describe('Credit Card Validator form', () => {
     await input.type('4111111111111111');
     const submit = await form.$('.btn-submit');
     submit.click();
-    await page.waitFor('.mark-valid');
+    await page.waitForSelector('.mark-valid');
   });
 });
