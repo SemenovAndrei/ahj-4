@@ -30,17 +30,17 @@ export default class FormMain {
    */
   static addMarkUpForm() {
     return `
-    <label class="label title">
-      <div class="label-title">Название</div>
-      <input type="text" class="field field-title" placeholder="write the name here" required>
-      <div class="hint hint-title"></div>
+    <label class="label" for="field">
+      <div class="label-title">Check your credit card number</div>
+      <div class="pictures-container">
+        <div class="card-preview "></div>
+      </div>
     </label>
-    <label class="label pic-url">
-      <div class="label-title">Ссылка на изображение</div>
-      <input type="text" class="field field-url" placeholder="write the url here" required>
-      <div class="hint hint-url"></div>
-    </label>
-    <button class="btn btn-submit">Отправить</button>
-    `;
+    <div class="controls">
+      <input type="number" class="field" id="field" placeholder="write the number here" required>
+      <button class="btn btn-submit">Click to Validate</button>
+    </div>
+    <div class="hint"></div>
+      `;
   }
 }
