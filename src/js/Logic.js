@@ -13,7 +13,7 @@ export default class Logic {
   /**
    * Check card number
    *
-   * @param {number} number - number of card
+   * @param {string} number - number of card
    */
   checkNumber(number) {
     this.setAnswerParam(number);
@@ -30,7 +30,7 @@ export default class Logic {
   /**
    * Set param to this.answer
    *
-   * @param {number} number - card number
+   * @param {string} number - card number
    */
   setAnswerParam(number) {
     const result = [];
@@ -53,7 +53,12 @@ export default class Logic {
     });
 
     if (result.length) {
-      const sortedResult = result.sort((a, b) => a[1] > b[1]);
+      const sortedResult = result.sort((a, b) => {
+        if (Number(a[1]) > Number(b[1])) {
+          return -1;
+        }
+        return 1;
+      });
       // eslint-disable-next-line prefer-destructuring
       this.answer = sortedResult[0][0];
     } else {
@@ -67,7 +72,7 @@ export default class Logic {
   /**
    *
    * @param {array} array - range of numbers
-   * @param {number} number - card number
+   * @param {string} number - card number
    *
    * @return shortNumber if range is correct
    */
@@ -102,7 +107,7 @@ export default class Logic {
   /**
    * Set card number to this.answer.number
    *
-   * @param {number} number - card number
+   * @param {string} number - card number
    */
   setNumber(number) {
     const arrNumber = number.split('');
@@ -120,7 +125,7 @@ export default class Logic {
 
   /**
    *
-   * @param {number} number - card number
+   * @param {string} number - card number
    *
    * @return this.answer
    */
