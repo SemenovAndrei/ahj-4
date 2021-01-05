@@ -1,13 +1,13 @@
 import puppetteer from 'puppeteer';
 import { fork } from 'child_process';
 
-jest.setTimeout(300000); // default puppeteer timeout
+jest.setTimeout(30000); // default puppeteer timeout
 
 describe('Credit Card Validator form', () => {
   let browser = null;
   let page = null;
   let server = null;
-  const baseUrl = 'http://127.0.0.1:8888';
+  const baseUrl = 'http://localhost:8888';
 
   beforeAll(async () => {
     server = fork(`${__dirname}../../../../js/e2e.server.js`);
